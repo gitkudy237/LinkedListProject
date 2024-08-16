@@ -1,10 +1,31 @@
 #include<stdio.h>
+#include<string.h>
+#include <stdlib.h>
+
 #include "header.h"
+
+STUDENT *head;
 
 int main(void)
 {
-	printf("This line was added by kudy");
-	printf("These are is a statement that is printed on the screen.");
+	//1. Allocate memory using malloc()
+	//2. make head point to the first node
+	STUDENT *node = malloc(sizeof(STUDENT));
+	head = node;
+	
+	head->age = 34;	
+	strcpy(head->name, "CLOVIS-KUDY");
+	
+	initialize(head);
+		
+	sortAsc(head);
+	
+	display(head);
+	
+	
 	
 	return 0;
 }
+
+
+
