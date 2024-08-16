@@ -1,6 +1,8 @@
 #include<stdio.h>
 int main(void)
 {
-	printf("This line has been added by Kudy\n");
+	printf("This line was added by kudy");
+	printf("These are is a statement that is printed on the screen.");
+	
 	return 0;
 }
