@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct student {
+struct student {i
 	int id;
 	int age;
 	char name[15];
