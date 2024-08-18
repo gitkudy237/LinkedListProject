@@ -11,7 +11,7 @@ int main(void)
 	//1. Allocate memory using malloc()
 	//2. make head point to the first node
 	initilize(head);
-
+	// Tyring to display an empty list should print list is empty.
 	displayList(head);
 
 	STUDENT *node1 = malloc(sizeof(STUDENT));
