@@ -79,6 +79,32 @@ void AddStudent()
 	}while(add == 1);
 	
 }
+void SortByMarks(STUDENT *m)
+{
+		float a;
+	STUDENT *temp1;
+	STUDENT *temp2;
+	for(temp1 = std; temp1 != NULL; temp1 = temp1->next)
+	{
+		for(temp2 = temp1->next;temp2 != NULL; temp2 = temp2->next)
+		{
+			if(temp1 > temp)
+		    {
+		    	a = temp1->marks
+			temp1->marks = temp2->marks;
+			temp2->marks = a;
+			}
+		}
+	}
+	std = head;
+	while(std != NULL)
+	{
+		printf("%.2f\n",std->marks);
+		std = std->next;
+	}
+
+	
+}
 
 
 	
