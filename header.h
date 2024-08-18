@@ -26,12 +26,12 @@ void AddStudent()
    
     STUDENT *head = NULL;
 		
-	STUDENT *std;
+	STUDENT *std;//std stands for the new node
 
 	int add;
 	
 	
-	 
+	 // Adding elements at the beginning of the list
 	    	 STUDENT *std = malloc(sizeof(STUDENT));
 	        head = std;
 	        std->next = NULL;
@@ -52,6 +52,7 @@ void AddStudent()
 		printf("Do you want to add another student? If 'Yes' press 1 if 'No' press 0");
 		scanf("%d",&add);
 	do{
+		//Adding elements at the end of the linklist
 			current = head;
 			while (current->next != NULL)
 			{
@@ -71,35 +72,40 @@ void AddStudent()
 	    	printf("Enter student marks\n");
 	    	scanf("%f",&std->marks);
 	    
-         
-         	display(std);
+         // The diplay function 
+         	displayList(std);
          	std = std->next;
 	  	printf("Do you want to add another student? If 'Yes' press 1 if 'No' press 0\n");
 		scanf("%d",&add);
-	}while(add == 1);
+	}while(add == 1);// Repeating the code until when the user enters 0
 	
 }
 void SortByMarks(STUDENT *m)
 {
+	// declaring a varriable for the sorting
 		float a;
+		//varriables to hold the address of student(std)
 	STUDENT *temp1;
 	STUDENT *temp2;
 	for(temp1 = std; temp1 != NULL; temp1 = temp1->next)
 	{
 		for(temp2 = temp1->next;temp2 != NULL; temp2 = temp2->next)
 		{
+			// Comparing and sorting the elements
 			if(temp1 > temp)
 		    {
+		    	
 		    	a = temp1->marks
 			temp1->marks = temp2->marks;
 			temp2->marks = a;
 			}
 		}
 	}
+	// Displaying the sorted list
 	std = head;
 	while(std != NULL)
 	{
-		printf("%.2f\n",std->marks);
+	displayList(std)
 		std = std->next;
 	}
 
