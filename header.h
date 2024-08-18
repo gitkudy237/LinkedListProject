@@ -10,6 +10,11 @@ struct student {
 
 typedef struct student STUDENT;
 
+void initilize(STUDENT *s);
+void display(STUDENT *s);
+void displayList(STUDENT *s);
+void sortAsc(STUDENT *s);
+
 
 void display(STUDENT *s){
 	printf("\n*******************************\n");
@@ -19,15 +24,20 @@ void display(STUDENT *s){
 	printf("\nName: %s", s->name);
 }
 
+void initilize(STUDENT *head){
+    head = NULL;
+}
+
 void sortAsc(STUDENT *head){
 
 }
-void initilize(STUDENT *head){
-
-}
-
 
 void displayList(STUDENT *head){
+
+    if (head == NULL) {
+        printf("The list is empty");
+        return;
+    }
 
     STUDENT *current;
     current = head;
