@@ -14,6 +14,8 @@ void initilize(STUDENT *s);
 void display(STUDENT *s);
 void displayList(STUDENT *s);
 void sortAsc(STUDENT *s);
+void removeByID(STUDENT *s, int key);
+int isEmpty(STUDENT *s);
 
 
 void display(STUDENT *s){
@@ -34,7 +36,7 @@ void sortAsc(STUDENT *head){
 
 void displayList(STUDENT *head){
 
-    if (head == NULL) {
+    if (isEmpty(head)) {
         printf("The list is empty");
         return;
     }
@@ -54,5 +56,11 @@ void displayList(STUDENT *head){
     }
 
 }
+
+int isEmpty(STUDENT *head){
+    return head == NULL ? 1 : 0;
+}
+
+
 
 // End of Kudy's changes
