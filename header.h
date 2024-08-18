@@ -1,12 +1,48 @@
+#include <stdio.h>
 
-// Beginning of Kudy's changes
-void display();
-int max();
-void add_student(int student);
+struct student {
+	int id;
+	int age;
+	char name[15];
+	int deleted;
+	struct student *next;
+};
 
-void display() {
-    printf("Displaying student info.");
-    printf("End of display");
+typedef struct student STUDENT;
+
+
+void display(STUDENT *s){
+	printf("\n*******************************\n");
+	printf("\nId: %d", s->id);
+	printf("\nAge: %d", s->age);
+	printf("\nDeleted: %d", s->deleted);
+	printf("\nName: %s", s->name);
+}
+
+void sortAsc(STUDENT *head){
+
+}
+void initilize(STUDENT *head){
+
+}
+
+
+void displayList(STUDENT *head){
+
+    STUDENT *current;
+    current = head;
+
+    while (current != NULL) {
+
+        printf("\nId: %d", current->id);
+        printf("\nAge: %d", current->age);
+        printf("\nDeleted: %d", current->deleted);
+        printf("\nName: %s", current->name);
+        printf("\n*******************************\n");
+
+        current = current->next;
+    }
+
 }
 
 // End of Kudy's changes
