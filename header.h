@@ -24,11 +24,11 @@ int isEmpty(STUDENT *s);
 
 
 void display(STUDENT *s){
-	printf("\n*******************************\n");
 	printf("\nId: %d", s->id);
 	printf("\nAge: %d", s->age);
 	printf("\nDeleted: %d", s->deleted);
 	printf("\nName: %s", s->name);
+	printf("\n*******************************\n");
 }
 
 void initilize(STUDENT *head){
@@ -50,13 +50,7 @@ void displayList(STUDENT *head){
     current = head;
 
     while (current != NULL) {
-
-        printf("\nId: %d", current->id);
-        printf("\nAge: %d", current->age);
-        printf("\nDeleted: %d", current->deleted);
-        printf("\nName: %s", current->name);
-        printf("\n*******************************\n");
-
+        display(current);
         current = current->next;
     }
 
@@ -87,6 +81,10 @@ STUDENT *searchByID(STUDENT *head, int key) {
 
 void removeByID(STUDENT *head, int key) {
 
+    if (isEmpty(head)) {
+        printf("List is empty");
+        return;
+    }
     STUDENT *current, *target;
     target = searchByID(head, key);
     current = head;
