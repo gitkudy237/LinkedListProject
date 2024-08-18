@@ -14,6 +14,11 @@ void initilize(STUDENT *s);
 void display(STUDENT *s);
 void displayList(STUDENT *s);
 void sortAsc(STUDENT *s);
+
+// searchByID will return a pointer to the target node.
+// The reason is to be able to maniplulate the output flexibly.
+// To see the output, use the display function declared above.
+STUDENT *searchByID(STUDENT *s, int key); 
 void removeByID(STUDENT *s, int key);
 int isEmpty(STUDENT *s);
 
@@ -61,6 +66,25 @@ int isEmpty(STUDENT *head){
     return head == NULL ? 1 : 0;
 }
 
+STUDENT *searchByID(STUDENT *head, int key) {
+    if (isEmpty(head)) {
+        printf("List is empty");
+        exit;
+    }
+    
+    STUDENT *current;
+    current = head;
+
+    while (current != NULL) {
+        if (current->id == key) {
+            printf("\nThe search result is:\n");
+            return current;
+            break;
+        }
+
+        current = current->next;
+    }
+}
 
 
-// End of Kudy's changes
+

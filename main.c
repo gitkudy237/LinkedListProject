@@ -42,11 +42,6 @@ int main(void)
 	node3->deleted = 1;
 
 
-
-	//initialize(head);
-
-	//sortAsc(head);
-
 	displayList(head);
 
 	return 0;
