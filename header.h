@@ -29,7 +29,7 @@ void AddStudent()
 	STUDENT *std;
 
 	int add;
-	do{
+	
 	
 	 
 	    	 STUDENT *std = malloc(sizeof(STUDENT));
@@ -47,13 +47,36 @@ void AddStudent()
 	    	scanf("%f",&std->marks);
 	    
       
-         	display(std);
-        
+         	
+        std = std->next;
 		printf("Do you want to add another student? If 'Yes' press 1 if 'No' press 0");
 		scanf("%d",&add);
+	do{
+			current = head;
+			while (current->next != NULL)
+			{
+				current = current->next;
+			}
+			STUDENT *std = malloc(sizeof(STUDENT));
+			current->next = std;
+			std->next = NULL;
+			printf("Enter student id\n");
+	    	scanf("%d",&std->id);
+	    	printf("Enter student age\n");
+	    	scanf("%d",&std->age);
+	    	printf("Enter 1 if student is deleted and 0 if student not deleted\n ");
+	    	scanf("%d",&std->deleted);
+	    	printf("Enter student name\n");
+	    	scanf("%s",&std->name);
+	    	printf("Enter student marks\n");
+	    	scanf("%f",&std->marks);
+	    
+         
+         	display(std);
+         	std = std->next;
+	  	printf("Do you want to add another student? If 'Yes' press 1 if 'No' press 0\n");
+		scanf("%d",&add);
 	}while(add == 1);
-	
-	
 	
 }
 
