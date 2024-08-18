@@ -20,8 +20,29 @@ void display(STUDENT *s){
 }
 
 void sortAsc(STUDENT *head){
-	
+
 }
 void initilize(STUDENT *head){
-	
+
 }
+
+
+void displayList(STUDENT *head){
+
+    STUDENT *current;
+    current = head;
+
+    while (current != NULL) {
+
+        printf("\nId: %d", current->id);
+        printf("\nAge: %d", current->age);
+        printf("\nDeleted: %d", current->deleted);
+        printf("\nName: %s", current->name);
+        printf("\n*******************************\n");
+
+        current = current->next;
+    }
+
+}
+
+// End of Kudy's changes
