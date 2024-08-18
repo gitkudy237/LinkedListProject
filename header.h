@@ -77,11 +77,25 @@ STUDENT *searchByID(STUDENT *head, int key) {
 
     while (current != NULL) {
         if (current->id == key) {
-            printf("\nThe search result is:\n");
             return current;
             break;
         }
 
+        current = current->next;
+    }
+}
+
+void removeByID(STUDENT *head, int key) {
+
+    STUDENT *current, *target;
+    target = searchByID(head, key);
+    current = head;
+
+    while (current < target) {
+        if (current->next = target) {
+            current->next = target->next;
+            free(target);
+        }
         current = current->next;
     }
 }
