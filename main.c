@@ -58,7 +58,7 @@ int main(void)
 
 	seacrchByName(head);
 
-	
+	addToList(head);
 
 	return 0;
 }
