@@ -22,7 +22,9 @@ int main(void)
 	
 	display(head);
 	
+	printf("This is a change from the online repo");
 	printf("This has been added locally");
+
 	
 	return 0;
 }
