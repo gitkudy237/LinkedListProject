@@ -10,8 +10,10 @@ struct student {
 };
 
 typedef struct student STUDENT;
+STUDENT *current;
 
 void initilize(STUDENT *s);
+void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
 void seacrchByName(STUDENT *s);
@@ -38,19 +40,20 @@ void initilize(STUDENT *head){
     head = NULL;
 }
 
+
 void print_header() {
     printf("\nStudentName\t\tId\t\tAge\t\tMark\t\tDeleted\n");
     printf("---------------------------------------------------------------------------------\n");
 
 }
 void displayList(STUDENT *head){
-
+    
+    system("cls");
     if (isEmpty(head)) {
         printf("The list is empty");
         return;
     }
 
-    STUDENT *current;
     current = head;
     printf("\nList of students:\n");
     print_header();
@@ -70,8 +73,7 @@ STUDENT *searchByID(STUDENT *head, int key) {
         printf("List is empty");
         exit;
     }
-    
-    STUDENT *current;
+
     current = head;
 
     while (current != NULL) {
@@ -85,12 +87,12 @@ STUDENT *searchByID(STUDENT *head, int key) {
 }
 
 void seacrchByName(STUDENT *head){
-
+    system("cls");
+    getchar();
     printf("Enter search keywords: ");
     char input[15];
     gets(input); 
 
-    STUDENT *current;
     current = head;
     int results = 0;
 
@@ -119,7 +121,7 @@ void removeByID(STUDENT *head, int key) {
         printf("List is empty");
         return;
     }
-    STUDENT *current, *target;
+    STUDENT *target;
     target = searchByID(head, key);
     current = head;
 
