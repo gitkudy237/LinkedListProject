@@ -16,7 +16,7 @@ void initilize(STUDENT *s);
 void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
-void seacrchByName(STUDENT *s);
+void seacrchByName(STUDENT *s, char input[15]);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -86,13 +86,8 @@ STUDENT *searchByID(STUDENT *head, int key) {
     }
 }
 
-void seacrchByName(STUDENT *head){
-    system("cls");
-    getchar();
-    printf("Enter search keywords: ");
-    char input[15];
-    gets(input); 
-
+void seacrchByName(STUDENT *head, char input[15]){
+    
     current = head;
     int results = 0;
 

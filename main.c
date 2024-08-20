@@ -56,7 +56,7 @@ int main(void)
 	// removeByID(head, 2);
 	displayList(head);
 
-	seacrchByName(head);
+	seacrchByName(head, "ed");
 
 	
 
