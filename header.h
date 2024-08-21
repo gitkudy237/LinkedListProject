@@ -15,7 +15,7 @@ void initilize(STUDENT *s);
 void display(STUDENT *s);
 void displayList(STUDENT *s);
 void seacrchByName(STUDENT *s);
-STUDENT addToList(STUDENT *head);
+STUDENT *addToList(STUDENT *head);
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
 // To see the output, use the display function declared above.
@@ -23,6 +23,10 @@ STUDENT *searchByID(STUDENT *s, int key);
 void removeByID(STUDENT *s, int key);
 int isEmpty(STUDENT *s);
 STUDENT *temporalNode, *newnode;
+//variables;
+int age, deleted, id;
+float mark;
+char name[25];
 
 void display(STUDENT *s){
 
@@ -38,8 +42,20 @@ void initilize(STUDENT *head){
     head = NULL;
 }
 
-STUDENT addToList(STUDENT *head)
+STUDENT *addToList(STUDENT *head)
 {
+	newnode = malloc(sizeof(STUDENT));
+	printf("Enter the name:");
+	gets(newnode->name);
+	printf("Enter the age:");
+	scanf("%d", &newnode->age);
+	printf("Enter the id:");
+	scanf("%d", &newnode->id);
+	printf("Enter the marks:");
+	scanf("%f", &newnode->mark);
+	printf("Enter 1 if deleted or 0 if not:");
+	scanf("%d", &newnode->deleted);
+	
 	newnode->next = NULL;
 	
 	if( head == NULL)
@@ -50,9 +66,7 @@ STUDENT addToList(STUDENT *head)
 	{
 		temporalNode->next = newnode;
 		temporalNode = newnode;
-		
 	}
-
 	return head;
 }
 

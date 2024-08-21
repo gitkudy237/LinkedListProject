@@ -8,26 +8,25 @@ STUDENT *head;
 
 int main(void)
 {
+	int i = 0;
 	//1. Allocate memory using malloc()
 	//2. make head point to the first node
 	initilize(head);
-
-	
-
-	STUDENT *node1 = malloc(sizeof(STUDENT));
+    	
+	/*STUDENT *node1 = malloc(sizeof(STUDENT));
 	head = node1;
 
     node1->id = 1;
 	node1->age = 34;
 	node1->mark = 18.0;
 	strcpy(node1->name, "CLOVIS BIN");
-	node1->deleted = 0;
+	node1->deleted = 0;*/
 	
 
 	// These are manually added students.
 	// Should be taken care of by the Add method.
 	// Adding at the end
-	STUDENT *node2 = malloc(sizeof(STUDENT));
+	/*STUDENT *node2 = malloc(sizeof(STUDENT));
 	STUDENT *node3 = malloc(sizeof(STUDENT));
 	STUDENT *node4 = malloc(sizeof(STUDENT));
 
@@ -51,14 +50,15 @@ int main(void)
 	strcpy(node4->name, "EDMON LOWE");
 	node4->age = 26;
 	node4->mark = 19.5;
-	node4->deleted = 0;
-
+	node4->deleted = 0;*/
+	
+	head = addToList(head);
+	
 	// removeByID(head, 2);
 	displayList(head);
-
 	seacrchByName(head);
 
-	addToList(head);
+
 
 	return 0;
 }
