@@ -24,7 +24,11 @@ void seacrchByName(STUDENT *s, char input[15]);
 STUDENT *searchByID(STUDENT *s, int key); 
 void removeByID(STUDENT *s, int key);
 int isEmpty(STUDENT *s);
-
+STUDENT *temporalNode, *newnode;
+//variables;
+int age, deleted, id;
+float mark;
+char name[25];
 
 void display(STUDENT *s){
 
@@ -40,6 +44,34 @@ void initilize(STUDENT *head){
     head = NULL;
 }
 
+
+STUDENT *addToList(STUDENT *head)
+{
+	newnode = malloc(sizeof(STUDENT));
+	printf("Enter the name:");
+	gets(newnode->name);
+	printf("Enter the age:");
+	scanf("%d", &newnode->age);
+	printf("Enter the id:");
+	scanf("%d", &newnode->id);
+	printf("Enter the marks:");
+	scanf("%f", &newnode->mark);
+	printf("Enter 1 if deleted or 0 if not:");
+	scanf("%d", &newnode->deleted);
+	
+	newnode->next = NULL;
+	
+	if( head == NULL)
+	{
+		head = temporalNode = newnode;
+	}
+	else
+	{
+		temporalNode->next = newnode;
+		temporalNode = newnode;
+	}
+	return head;
+}
 
 void print_header() {
     printf("\nStudentName\t\tId\t\tAge\t\tMark\t\tDeleted\n");
