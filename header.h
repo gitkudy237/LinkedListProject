@@ -2,18 +2,21 @@
 
 struct student {
 	int id;
+	char name[25];
 	int age;
-	char name[15];
+    float mark;
 	int deleted;
 	struct student *next;
 };
 
 typedef struct student STUDENT;
+STUDENT *current;
 
 void initilize(STUDENT *s);
+void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
-void sortAsc(STUDENT *s);
+void seacrchByName(STUDENT *s);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -24,31 +27,36 @@ int isEmpty(STUDENT *s);
 
 
 void display(STUDENT *s){
-	printf("\nId: %d", s->id);
-	printf("\nAge: %d", s->age);
-	printf("\nDeleted: %d", s->deleted);
-	printf("\nName: %s", s->name);
-	printf("\n*******************************\n");
+
+	printf("%s\t\t", s->name);
+	printf("%d\t\t", s->id);
+	printf("%d\t\t", s->age);
+	printf("%.2f\t\t", s->mark);
+    printf("%d\n", s->deleted);
+    printf("---------------------------------------------------------------------------------\n");
 }
 
 void initilize(STUDENT *head){
     head = NULL;
 }
 
-void sortAsc(STUDENT *head){
+
+void print_header() {
+    printf("\nStudentName\t\tId\t\tAge\t\tMark\t\tDeleted\n");
+    printf("---------------------------------------------------------------------------------\n");
 
 }
-
 void displayList(STUDENT *head){
-
+    
+    system("cls");
     if (isEmpty(head)) {
         printf("The list is empty");
         return;
     }
 
-    STUDENT *current;
     current = head;
-
+    printf("\nList of students:\n");
+    print_header();
     while (current != NULL) {
         display(current);
         current = current->next;
@@ -63,10 +71,9 @@ int isEmpty(STUDENT *head){
 STUDENT *searchByID(STUDENT *head, int key) {
     if (isEmpty(head)) {
         printf("List is empty");
-        exit(-1);
+        exit;
     }
-    
-    STUDENT *current;
+
     current = head;
 
     while (current != NULL) {
@@ -79,13 +86,42 @@ STUDENT *searchByID(STUDENT *head, int key) {
     }
 }
 
+void seacrchByName(STUDENT *head){
+    system("cls");
+    getchar();
+    printf("Enter search keywords: ");
+    char input[15];
+    gets(input); 
+
+    current = head;
+    int results = 0;
+
+    printf("\nThe search result for \"%s\" is:\n", input);
+    print_header();
+    while (current != NULL) {
+        char test_input[15];
+        char test_current[15];
+
+        strcpy(test_input, input);
+        strcpy(test_current, current->name);
+
+        if (strstr(strlwr(test_current), strlwr(test_input)) != NULL) {
+            display(current);
+            results++;
+        }
+        current = current->next;
+    }
+
+    if (results == 0)
+        printf("<---------- Empty ---------->");
+}
 void removeByID(STUDENT *head, int key) {
 
     if (isEmpty(head)) {
         printf("List is empty");
         return;
     }
-    STUDENT *current, *target;
+    STUDENT *target;
     target = searchByID(head, key);
     current = head;
 
@@ -97,3 +133,6 @@ void removeByID(STUDENT *head, int key) {
         current = current->next;
     }
 }
+
+
+
