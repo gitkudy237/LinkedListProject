@@ -1,5 +1,7 @@
 #include <stdio.h>
-
+#include<stdlib.h>
+#include<string.h>
+struct student *head = NULL;
 struct student {
 	int id;
 	char name[25];
@@ -16,7 +18,11 @@ void initilize(STUDENT *s);
 void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
-void seacrchByName(STUDENT *s);
+void sortByMarks();
+void sortedListByMarks();
+void sortedListByName();
+void sortByName();
+void searchByName(STUDENT *s, char input[15]);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -24,7 +30,11 @@ void seacrchByName(STUDENT *s);
 STUDENT *searchByID(STUDENT *s, int key); 
 void removeByID(STUDENT *s, int key);
 int isEmpty(STUDENT *s);
-
+STUDENT *temporalNode, *newnode;
+//variables;
+int age, deleted, id;
+float mark;
+char name[25];
 
 void display(STUDENT *s){
 
@@ -40,6 +50,34 @@ void initilize(STUDENT *head){
     head = NULL;
 }
 
+
+STUDENT *addToList(STUDENT *head)
+{
+	newnode = (STUDENT*) malloc(sizeof(STUDENT));
+	printf("Enter the name:");
+	gets(newnode->name);
+	printf("Enter the age:");
+	scanf("%d", &newnode->age);
+	printf("Enter the id:");
+	scanf("%d", &newnode->id);
+	printf("Enter the marks:");
+	scanf("%f", &newnode->mark);
+	printf("Enter 1 if deleted or 0 if not:");
+	scanf("%d", &newnode->deleted);
+	
+	newnode->next = NULL;
+	
+	if( head == NULL)
+	{
+		head = temporalNode = newnode;
+	}
+	else
+	{
+		temporalNode->next = newnode;
+		temporalNode = newnode;
+	}
+	return head;
+}
 
 void print_header() {
     printf("\nStudentName\t\tId\t\tAge\t\tMark\t\tDeleted\n");
@@ -86,13 +124,8 @@ STUDENT *searchByID(STUDENT *head, int key) {
     }
 }
 
-void seacrchByName(STUDENT *head){
-    system("cls");
-    getchar();
-    printf("Enter search keywords: ");
-    char input[15];
-    gets(input); 
-
+void searchByName(STUDENT *head, char input[15]){
+    
     current = head;
     int results = 0;
 
@@ -134,5 +167,104 @@ void removeByID(STUDENT *head, int key) {
     }
 }
 
+void sortByMarks()
+{
+	if(head == NULL || head->next == NULL)
+ 	exit;
+ 	STUDENT *sortedList = NULL;
+ 	current = head;
+ 	while(current != NULL)
+ 	{
+ 		STUDENT *nextNode = current->next;
+ 		
+ 		if(sortedList == NULL || current->mark <= sortedList->mark)
+ 		{
+ 			current->next = sortedList;
+ 			sortedList = current;
+		 }
+		 else{
+		 	STUDENT *temp = sortedList;
+		 	while(temp->next != NULL && temp->next->mark< current->mark)	
+		 	temp = temp->next;
+		 	current->next = temp->next;
+		 	temp->next = current;
+		 }
+		 current = nextNode;
+	 }
+    //displayList(sortedList);
+    head = sortedList;
+}
+
+void addStudent()
+{
+	int option = 1;
+	while(option){
+	
+	STUDENT *temp;
+	temp = (STUDENT*)malloc(sizeof(STUDENT));
+	printf("\nEnter Id: ");
+	scanf("%d", &temp->id);
+	printf("\nEnter name: ");
+	getchar();
+	gets(temp->name);
+	printf("\nEnter the age: ");
+	scanf("%d",  &temp->age);
+	printf("\nEnter marks: ");
+	scanf("%f", &temp->mark);
+	temp->next = NULL;
+	if(head == NULL){
+		head = temp;
+		return;
+	}
+	else{
+		STUDENT *ptr = head;
+		while(ptr->next != NULL)
+		{
+			ptr = ptr->next;
+		}
+		ptr->next = temp;
+	}
+	printf("Do you still want to add a student? If yes( press 1), no( press 0)");
+	scanf("%d", &option);  
+  }
+}
 
 
+void sortByName()
+{
+	if(head == NULL || head->next == NULL)
+	{
+		return;
+	}
+	STUDENT *sortedList = NULL;
+	STUDENT *current = head;
+	while(current != NULL)
+	{
+		STUDENT *nextNode = current->next;
+		if(sortedList == NULL || strcmp(current->name, sortedList->name) <= 0)
+		{
+			current->next = sortedList;
+			sortedList = current;
+		}else{
+			STUDENT *temp = head;
+			while(temp->next != NULL && strcmp(temp->next->name, current->name) < 0)
+			temp = temp->next;
+			current->next = temp->next;
+			temp->next = current;
+		}
+		current = nextNode;
+	}
+	head = sortedList;
+}
+
+
+void sortedListByMarks()
+{	sortByMarks();
+	displayList(head);
+}
+
+void sortedListByName()
+{
+	sortByName();
+	displayList(head);
+}

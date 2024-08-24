@@ -4,17 +4,47 @@
 
 #include "header.h"
 
-STUDENT *head;
+//STUDENT *head;
 
 int main(void)
 {
+	int choice;
+	while(1)
+	{	printf("********************\n");
+		printf("0. Add student\n");
+		printf("1. display list\n");
+		printf("2. sort list by marks\n");
+		printf("3. sort list by name\n");
+		printf("4. Search by name\n");
+		printf("5. *** To exit ***\n");
+		
+		printf("\ntake a choice: ");
+		scanf("%d", &choice);
+		
+		switch(choice)
+		{
+			case 0: addStudent();
+					break;
+			case 1: displayList(head);
+					break;
+			case 2: sortedListByMarks();
+					break;
+			case 3: sortedListByName();
+					break;
+			case 4: searchByName(head, "n");
+					break;
+			case 5: exit(0);
+			default: printf("invalid choice\n");
+					break;
+		}
+	}
 	//1. Allocate memory using malloc()
 	//2. make head point to the first node
 	initilize(head);
 
 	
 
-	STUDENT *node1 = malloc(sizeof(STUDENT));
+	/*STUDENT *node1 = malloc(sizeof(STUDENT));
 	head = node1;
 
     node1->id = 1;
@@ -35,7 +65,7 @@ int main(void)
 	node2->next = node3;
 	node3->next = node4;
 
-	node2->id = 2;
+	node2->id = 7;
 	strcpy(node2->name, "EDDY RYAN");
 	node2->age = 25;
 	node2->mark = 18.5;
@@ -52,11 +82,14 @@ int main(void)
 	node4->age = 26;
 	node4->mark = 19.5;
 	node4->deleted = 0;
-
+*/
 	// removeByID(head, 2);
-	displayList(head);
+	//displayList(head);
 
-	seacrchByName(head);
+	//seacrchByName(head, "be");
+
+	//sortedListByMarks(head);
+	//displayList(head);
 
 	
 
