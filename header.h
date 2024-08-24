@@ -224,5 +224,16 @@ void showSingleResult(STUDENT *student) {
     display(student);
 }
 
+int length(STUDENT *head) {
+    current = head;
+    int count = 0;
+
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+
+    return count;
+}
 
 
