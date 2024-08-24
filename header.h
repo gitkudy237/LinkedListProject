@@ -18,11 +18,8 @@ void initilize(STUDENT *s);
 void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
-void sortByMarks();
-void sortedListByMarks();
-void sortedListByName();
-void sortByName();
-void searchByName(STUDENT *s, char input[15]);
+ void sortByMarks(STUDENT* head);
+void seacrchByName(STUDENT *s, char input[15]);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -124,7 +121,7 @@ STUDENT *searchByID(STUDENT *head, int key) {
     }
 }
 
-void searchByName(STUDENT *head, char input[15]){
+void seacrchByName(STUDENT *head, char input[15]){
     
     current = head;
     int results = 0;
@@ -167,31 +164,29 @@ void removeByID(STUDENT *head, int key) {
     }
 }
 
-void sortByMarks()
+ void sortByMarks(STUDENT * head)
 {
 	if(head == NULL || head->next == NULL)
- 	exit;
- 	STUDENT *sortedList = NULL;
- 	current = head;
- 	while(current != NULL)
- 	{
- 		STUDENT *nextNode = current->next;
- 		
- 		if(sortedList == NULL || current->mark <= sortedList->mark)
- 		{
- 			current->next = sortedList;
- 			sortedList = current;
-		 }
-		 else{
-		 	STUDENT *temp = sortedList;
-		 	while(temp->next != NULL && temp->next->mark< current->mark)	
-		 	temp = temp->next;
-		 	current->next = temp->next;
-		 	temp->next = current;
-		 }
-		 current = nextNode;
-	 }
-    //displayList(sortedList);
+		return; // checks whether list is null or contains a single node.
+	STUDENT * sortedList = NULL;
+	STUDENT* current = head;
+	while(current != NULL)
+	{
+		STUDENT* nextNode = current->next;
+		if(sortedList == NULL || current->mark <= sortedList->mark)
+		{
+			current->next = sortedList;
+			sortedList = current;
+		}
+		else{
+			STUDENT* temp = sortedList;
+			while(temp->next != NULL && temp->next->mark < current->mark)
+			 temp = temp->next;
+			 current->next = temp->next;
+			 temp->next  = current;
+		}
+		current = nextNode;
+	}
     head = sortedList;
 }
 
@@ -265,6 +260,6 @@ void sortedListByMarks()
 
 void sortedListByName()
 {
-	sortByName();
+	 sortByName();
 	displayList(head);
 }
