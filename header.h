@@ -20,6 +20,7 @@ void seacrchByName(STUDENT *s, char input[15]);
 void edit(STUDENT *s, int id);
 void editMark(STUDENT *s, float newMark);
 void softDelete(STUDENT *s);
+void showSingleResult(STUDENT *s);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -178,9 +179,7 @@ void edit(STUDENT *head, int key) {
     }
 
     printf("The student is:\n");
-    print_header();
-    display(target);
-
+    showSingleResult(target);
     int choice;
     printf("Press 1 to edit student mark\n");
     printf("Press 2 to soft delete student\n");
@@ -208,10 +207,8 @@ void edit(STUDENT *head, int key) {
             break;
     }
 
-    printf("Updated record successfully!");
-    print_header();
-    display(target);
-
+    printf("\nUpdated record successfully!");
+    showSingleResult(target);
 }
 
 void editMark(STUDENT *student, float newMark) {
@@ -220,6 +217,11 @@ void editMark(STUDENT *student, float newMark) {
 
 void softDelete(STUDENT *student) {
     student->deleted = 1;
+}
+
+void showSingleResult(STUDENT *student) {
+    print_header();
+    display(student);
 }
 
 
