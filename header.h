@@ -17,6 +17,7 @@ void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
 void seacrchByName(STUDENT *s, char input[15]);
+void edit(STUDENT *s, int id);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
@@ -127,6 +128,39 @@ void removeByID(STUDENT *head, int key) {
         }
         current = current->next;
     }
+}
+
+void edit(STUDENT *head, int key) {
+
+    STUDENT *target;
+    target = searchByID(head, key);
+
+    int choice;
+
+    printf("Press 1 to edit name.\n");
+    printf("Enter 2 to edit student mark\n");
+
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Enter new name: ");
+            gets(target->name);
+            break;
+        
+        case 2:
+            printf("Enter new mark: ");
+            scanf("%f", &target->mark);
+
+        default:
+            printf("Invalid option.");
+            break;
+    }
+
+    printf("Updated record successfully!");
+    print_header();
+    display(target);
+    
 }
 
 
