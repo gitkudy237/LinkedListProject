@@ -11,11 +11,11 @@ int main(void)
 
 	//initilize(head);
 
-	//head = addToList(head);
+	head = addToList(head);
 
 	//displayList(head);
 
-	//edit(head, 1);
+	edit(head, 1);
 
 	//seacrchByName(head, "dy");
 

@@ -119,6 +119,8 @@ STUDENT *searchByID(STUDENT *head, int key) {
 
         current = current->next;
     }
+
+    return NULL;
 }
 
 void seacrchByName(STUDENT *head, char input[15]){
@@ -143,7 +145,7 @@ void seacrchByName(STUDENT *head, char input[15]){
     }
 
     if (results == 0)
-        printf("<---------- Empty ---------->");
+        printf("<-------------------------------- Empty ------------------------------------>");
 }
 void removeByID(STUDENT *head, int key) {
 
