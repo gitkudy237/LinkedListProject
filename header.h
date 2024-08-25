@@ -32,7 +32,6 @@ void sortByMarks();
 void sortById();
 void sortByAge();
 int inputID();
-const char inputName();
 void displayMenu();
 void searchByName(STUDENT *head, const char input[15]);
 STUDENT *searchByID(STUDENT *s, int key);
@@ -60,6 +59,10 @@ void initilize(STUDENT *head){
 
 STUDENT *addToList(STUDENT *head)
 {
+	int option  = 1;
+	while(option)
+  {
+	
 	newnode = (STUDENT*) malloc(sizeof(STUDENT));
     int candidateID;
 
@@ -81,11 +84,11 @@ STUDENT *addToList(STUDENT *head)
 	gets(newnode->name);
 	printf("Enter the age: ");
 	scanf("%d", &newnode->age);
-	printf("Enter the marks :");
+	printf("Enter the marks: ");
 	scanf("%f", &newnode->mark);
 
 	newnode->next = NULL;
-
+	newnode->deleted = 0;
 	if( head == NULL)
 	{
 		head = temporalNode = newnode;
@@ -98,6 +101,10 @@ STUDENT *addToList(STUDENT *head)
 	printf("\n\nStudent added Successfully!\n");
 	print_header();
 	display(temporalNode);
+	
+	printf("\n\nDo you want to add another student? if yes, press 1, otherwise press 0: ");
+	scanf("%d", &option);
+ }
 	return head;
 }
 
@@ -197,8 +204,10 @@ void removeByID(STUDENT *head, int key) {
 
 void edit(STUDENT *head, int key) {
 	system("cls");
+	int selection = 1;
+	while(selection){
+	
 	int selection;
-	while(1){
 
     STUDENT *target;
     target = searchByID(head, key);
@@ -214,6 +223,7 @@ void edit(STUDENT *head, int key) {
     int choice;
     printf("Press 1 to edit student mark\n");
     printf("Press 2 to soft delete student\n");
+	printf("Press 3 to go back to the menu.");
     scanf("%d", &choice);
 
     float newMark;
@@ -230,9 +240,9 @@ void edit(STUDENT *head, int key) {
         case 2:
             printf("Press 1 to delete\nPress 0 to cancel\n");
             scanf("%d", &option);
-            option == 1 ? softDelete(target) : edit(target, key);
+            option == 1 ? softDelete(target) : displayMenu();
             break;
-
+		case 3: displayMenu();
         default:
             printf("Invalid option.");
             break;
@@ -240,7 +250,7 @@ void edit(STUDENT *head, int key) {
 
     printf("\nUpdated record successfully!");
     showSingleResult(target);
-    printf("\n\nDo you want to edit again? if yes, press 1, otherwise press 2: ");
+    printf("\n\nDo you want to edit again? if yes, press 1, otherwise press 0: ");
     scanf("%d", &selection);
   }
 }
@@ -450,7 +460,7 @@ void searchMenu()
 		printf("-------------------------------------------------|\n");
 		printf("\t2\t | search by ID\n");
 		printf("-------------------------------------------------|\n");
-		printf("\t3\t | Go back to main menu.");
+		printf("\t3\t | Go back to main menu.\n");
 		printf("-------------------------------------------------|\n");
 		printf("\nEnter choice of search: ");
 		scanf("%d", &choice);
@@ -535,4 +545,5 @@ int inputID() {
     scanf("%d", &id);
     return id;
 }
+
 
