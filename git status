@@ -1,0 +1,368 @@
+[33mcommit a5d1ba2a041e42c3e8eb2d11ffdc74b63ec4d50f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mclovis-branch[m[33m)[m
+Merge: 38fee7c 024befa
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Sat Aug 24 11:42:47 2024 +0100
+
+    Added the sortByMarks function
+
+[33mcommit 38fee7cc6ccb7faa52c2e56c85dd567de14fa1e4[m
+Merge: 7c56662 1df29ed
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Fri Aug 23 13:02:54 2024 +0100
+
+    Clovis' commit
+
+[33mcommit 024befacb9a22d8f697d9b33b97d6b7557e5a59c[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 5c16050 dbf5b07
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Wed Aug 21 14:51:46 2024 +0100
+
+    merged with Jethro-branch
+
+[33mcommit dbf5b070842f7591ffb79e7962263b7bcb0c731d[m
+Author: jeth-git <jethrotabue@gmail.com>
+Date:   Wed Aug 21 14:33:23 2024 +0200
+
+    addToList
+
+[33mcommit 5c160500e1e6fc488b98f8aa2827fc3b0672354f[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 23:53:21 2024 +0100
+
+    searchByName updated
+
+[33mcommit 7c56662e9e6d4c582355fe03228b4de1cc927741[m
+Merge: 815eccc 8018634
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Tue Aug 20 19:42:22 2024 +0100
+
+    initial commit
+
+[33mcommit 1df29eddfc4b1a3b8bfa823b651b163cb27af484[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 19:15:25 2024 +0100
+
+    updated the displaylist and searchByName methods
+
+[33mcommit c2b44278d733d9d6111f8103149a8123299f2fb1[m
+Author: jeth-git <jethrotabue@gmail.com>
+Date:   Tue Aug 20 19:58:38 2024 +0200
+
+    add to list function
+
+[33mcommit 0bae6df182fb282576385f7e6b4bc122078f7267[m
+Merge: 32a2fd9 27f0069
+Author: jeth-git <jethrotabue@gmail.com>
+Date:   Tue Aug 20 19:16:58 2024 +0200
+
+    s2
+
+[33mcommit 32a2fd93c0bd5391ffd4c5fd57c07f47e9b37d37[m
+Merge: c21c099 8bd948d
+Author: jeth-git <jethrotabue@gmail.com>
+Date:   Tue Aug 20 19:08:25 2024 +0200
+
+    yo
+
+[33mcommit 27f0069c8b2c3c689550c6d3dd6ba353b35f8424[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 16:49:41 2024 +0100
+
+    updated the main for tests
+
+[33mcommit 9dac87c0a7734140eb0c9ac5f759fb4ca520dc18[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 16:41:02 2024 +0100
+
+    searchByName updated
+
+[33mcommit f85fe5a095a6946bab73fedbb558022129a7dfd2[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 14:59:41 2024 +0100
+
+    updated display, implemented and tested searchByName
+
+[33mcommit 93fd06dfc82583d18a37b764cb95fc47937986bb[m
+Merge: fb109ec e79d5d6
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 11:14:17 2024 +0100
+
+    merged with the master branch
+
+[33mcommit fb109ec4a9533e4fc5e65229c4f5bccd058cbc86[m
+Merge: c28ea49 8abb466
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Tue Aug 20 11:06:24 2024 +0100
+
+    merging with master branch
+
+[33mcommit 815ecccfd6cc147417e57b9f4aaa7dcec4b1ad00[m[33m ([m[1;31morigin/clovis-branch[m[33m)[m
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Tue Aug 20 04:12:32 2024 +0100
+
+    This change is not necessary
+
+[33mcommit e79d5d604b91fa0552d2a30dce73811dc0232148[m
+Merge: 5bc60c6 7d2d05e
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 19:38:24 2024 +0100
+
+    Merge pull request #12 from gitkudy237/KUDY-BRANCH
+    
+    refactored displayList method
+
+[33mcommit 7d2d05e281b985911f17f692c92df7ee6b787564[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 19:37:15 2024 +0100
+
+    refactored displayList method
+
+[33mcommit 5bc60c67c768bb53f4838f239ed9fc4ee2e32a5e[m
+Merge: ab3e6b4 e0209a1
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 19:34:42 2024 +0100
+
+    Merge pull request #11 from gitkudy237/KUDY-BRANCH
+    
+    removeByID method implemented and tested
+
+[33mcommit e0209a1cdfd383270af96ed4ca741ba0303ddbcc[m
+Merge: 00bdca3 642c6a8
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 19:24:12 2024 +0100
+
+    removeByID method implemented and tested
+
+[33mcommit ab3e6b4a422d204c412a6017c547df73fe047693[m
+Merge: 642c6a8 00bdca3
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 18:48:01 2024 +0100
+
+    Merge pull request #10 from gitkudy237/KUDY-BRANCH
+    
+    Kudy branch
+
+[33mcommit 00bdca3833916ead0a0bf6db75ee783b0d73e27f[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 18:44:45 2024 +0100
+
+    searchByID implemented and tested
+
+[33mcommit b8500c42ed2e7d83b54fa745708dcdae441f1a06[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 18:36:45 2024 +0100
+
+    searchByID implemented and tested
+
+[33mcommit c28ea49db03afafa853d38f7bbdd7a9b7f93c2e4[m
+Merge: 04c6dae 642c6a8
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 18:13:00 2024 +0100
+
+    searchByID method implemented and tested
+
+[33mcommit 04c6dae7e32f0c0ef67e60eb1641c1c987b1d3f3[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 18:07:21 2024 +0100
+
+    searchByID method implemented and tested
+
+[33mcommit 6f02a8e93d163ece3eb25822baba91f4e77680a5[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 17:03:31 2024 +0100
+
+    Declaration and definition for isEmpty() added
+
+[33mcommit 642c6a8920367b1b57e4c9c3f7749a24ed801ee6[m
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 14:01:03 2024 +0100
+
+    Update main.c
+    
+    added description to trying to print and empty list
+
+[33mcommit 8abb466e0c6210adf444c9ad82b710d53f468a7d[m[33m ([m[1;31morigin/kudy-branch[m[33m)[m
+Merge: 7ccde08 31b3bba
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 13:58:07 2024 +0100
+
+    Merge pull request #9 from gitkudy237/master
+    
+    Merge pull request #8 from gitkudy237/kudy-branch
+
+[33mcommit 31b3bba0ea8043550deb68900d065684292fdc7a[m
+Merge: b7db100 7ccde08
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 13:56:27 2024 +0100
+
+    Merge pull request #8 from gitkudy237/kudy-branch
+    
+    Kudy branch
+
+[33mcommit 7ccde08702cd5d68210d66d98fe1e012de8156fb[m
+Merge: cea0659 b7db100
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 13:50:56 2024 +0100
+
+    updated displayList method and method declarations
+
+[33mcommit cea0659fdc34dc5c1a0d3638ebd68d8ec0d5a317[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 13:44:50 2024 +0100
+
+    Updated displayList and method declarations
+
+[33mcommit b7db100a1b16862a5968134ddcba12f54bd65feb[m
+Merge: 084bb73 11c1e46
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Sun Aug 18 13:30:51 2024 +0100
+
+    Merge pull request #7 from gitkudy237/kudy-branch
+    
+    Kudy branch
+
+[33mcommit 11c1e461d6cbf9989fa9fcba5caf7ae4affd3779[m
+Merge: 2b3ec09 084bb73
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 13:29:36 2024 +0100
+
+    display method implemented and tested
+
+[33mcommit 2b3ec096a27143f3e2b0f914363af3053aee6128[m
+Merge: 2e46db5 8bd948d
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Sun Aug 18 13:18:05 2024 +0100
+
+    display funtion implemented and tested
+
+[33mcommit 084bb73a0d5b9d4664c7b56398a1c70414b4ca5f[m
+Author: ETUGE DERICK <dolass2017@gmail.com>
+Date:   Sat Aug 17 11:33:27 2024 +0100
+
+    Create README.md
+
+[33mcommit c79334f00f7329cf270b3b86ff91293f656efc0f[m
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Fri Aug 16 21:14:25 2024 +0100
+
+    Did a local change to main.c
+
+[33mcommit 8018634ee5d01bf03ddbdc275e0a2888961ba52d[m[33m ([m[1;31morigin/derick/dev[m[33m)[m
+Author: Kebeh Clovis <165111308+ClovisBK@users.noreply.github.com>
+Date:   Fri Aug 16 21:09:51 2024 +0100
+
+    Update main.c
+    
+    printf added online
+
+[33mcommit 8bd948d1e3c1e76a220e0985b7a3320eab8dbfe9[m[33m ([m[1;32mtest[m[33m)[m
+Author: ETUGE DERICK <dolass2017@gmail.com>
+Date:   Fri Aug 16 19:50:31 2024 +0100
+
+    Update header.h code structure
+
+[33mcommit ad298b78dc0fd3846ca9a1d5db0db140b5a865c9[m
+Author: ETUGE DERICK <dolass2017@gmail.com>
+Date:   Fri Aug 16 19:49:48 2024 +0100
+
+    project structure
+
+[33mcommit 75b320e520df2778541df07b05779fc59cef82a6[m
+Author: ETUGE DERICK <dolass2017@gmail.com>
+Date:   Fri Aug 16 19:00:33 2024 +0100
+
+    Update main.c
+    
+    Linking the header.h and the main function in c
+
+[33mcommit 2e46db58598c5291e7577c8bf65f9eb3da7844d2[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Fri Aug 16 16:32:19 2024 +0100
+
+    Declared and defined functions
+
+[33mcommit 37989ca913e68e6b78a3ef7e02250181cdcafcdf[m
+Merge: 2de8999 92defca
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Fri Aug 16 16:25:39 2024 +0100
+
+    Merge pull request #6 from gitkudy237/kudy-branch
+    
+    Kudy branch
+
+[33mcommit 92defcad3901c5dde39698d0a8d47229fc3e1e9e[m
+Merge: deb8ad8 2de8999
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Fri Aug 16 16:19:17 2024 +0100
+
+    This is another commit
+
+[33mcommit deb8ad860ab8f224a763018a19c576cfc9ad8afd[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Fri Aug 16 16:04:10 2024 +0100
+
+    Another commit
+
+[33mcommit 2de8999153e60d82b61809b45a20309cc24baa74[m
+Merge: ff77968 d8d74a5
+Author: Kebeh Clovis <165111308+ClovisBK@users.noreply.github.com>
+Date:   Fri Aug 16 15:36:20 2024 +0100
+
+    Merge pull request #5 from gitkudy237/clovis-branch
+    
+    I just added a  printf statement
+
+[33mcommit d8d74a5711a52558911faaee31586b9ec9dcb5c0[m
+Merge: 5dccc27 ff77968
+Author: Kebeh Clovis <165111308+ClovisBK@users.noreply.github.com>
+Date:   Fri Aug 16 15:36:02 2024 +0100
+
+    Merge branch 'master' into clovis-branch
+
+[33mcommit 5dccc277ad18fa9cbb66ef106e4c43fef2430a59[m
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Fri Aug 16 15:30:59 2024 +0100
+
+    I just added a  printf statement
+
+[33mcommit c21c099daab4a0a78dfcddca32eac8fc05897d22[m[33m ([m[1;31morigin/Jethro-branch[m[33m)[m
+Author: jeth-git <jethrotabue@gmail.com>
+Date:   Fri Aug 16 15:58:14 2024 +0200
+
+    change
+
+[33mcommit ff77968ce4296b0c434279be899022a096528445[m
+Merge: 359a83d d22309d
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Fri Aug 16 14:44:50 2024 +0100
+
+    Merge pull request #3 from gitkudy237/kudy-branch
+    
+    Added return 0
+
+[33mcommit d22309dda8808c36413a7550e1294f63a3108ec0[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Fri Aug 16 14:42:33 2024 +0100
+
+    Added return 0
+
+[33mcommit 359a83d55bc930e09bccff15b949589a980a9594[m
+Merge: 0dd475b afcaded
+Author: Bayard Kudy <85774003+gitkudy237@users.noreply.github.com>
+Date:   Fri Aug 16 14:27:52 2024 +0100
+
+    Merge pull request #1 from gitkudy237/clovis-branch
+    
+    my first commmit
+
+[33mcommit afcadede8bfd5aadca1b3699aa23facbfb34555a[m
+Author: Kebeh Clovis <binkebehclovis@gmail.com>
+Date:   Fri Aug 16 14:20:32 2024 +0100
+
+    my first commmit
+
+[33mcommit 0dd475b9993c7b3ef73f96eeaceb2cca740c3b49[m
+Author: kudy <bayardkudy1@gmail.com>
+Date:   Fri Aug 16 13:41:38 2024 +0100
+
+    Initial commit
