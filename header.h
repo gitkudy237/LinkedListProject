@@ -163,6 +163,12 @@ void removeByID(STUDENT *head, int key) {
     }
     STUDENT *target;
     target = searchByID(head, key);
+
+    if (!target) {
+        printf("Sorry! student not found!");
+        return;
+    }
+    
     current = head;
 
     while (current < target) {
@@ -209,7 +215,7 @@ void edit(STUDENT *head, int key) {
         case 2:
             printf("Press 1 to delete\nPress 0 to cancel\n");
             scanf("%d", &option);
-            option == 1 ? softDelete(target) : exit(0);
+            option == 1 ? softDelete(target) : edit(target, key);
             break;
 
         default:
@@ -447,4 +453,19 @@ void search()
 		scanf("%d", &option);
 		
 	}
+}
+
+
+int inputID() {
+    int id;
+    printf("Enter student ID: ");
+    scanf("%d", &id);
+    return id;
+}
+
+char inputName() {
+    char name[15];
+    printf("Enter student name: ");
+    gets(name);
+    return name;
 }
