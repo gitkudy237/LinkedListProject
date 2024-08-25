@@ -18,22 +18,21 @@ void initilize(STUDENT *s);
 void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
-void seacrchByName(STUDENT *s, char input[15]);
 void edit(STUDENT *s, int id);
 void editMark(STUDENT *s, float newMark);
 void softDelete(STUDENT *s);
 void showSingleResult(STUDENT *s);
- void sortByMarks();
+void sortByMarks();
 void sortById();
 void sortByAge();
-void searchByName(STUDENT *head, char input[15]);
+void searchByName(STUDENT *head, const char input[15]);
 
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
 // To see the output, use the display function declared above.
 STUDENT *searchByID(STUDENT *s, int key);
 void removeByID(STUDENT *s, int key);
-void Edit(STUDENT *head, int key);
+void edit(STUDENT *head, int key);
 int isEmpty(STUDENT *s);
 STUDENT *temporalNode, *newnode;
 //variables;
@@ -59,16 +58,15 @@ void initilize(STUDENT *head){
 STUDENT *addToList(STUDENT *head)
 {
 	newnode = (STUDENT*) malloc(sizeof(STUDENT));
-	printf("Enter the name:");
-	gets(newnode->name);
-	printf("Enter the age:");
-	scanf("%d", &newnode->age);
-	printf("Enter the id:");
+	printf("Enter the id: ");
 	scanf("%d", &newnode->id);
-	printf("Enter the marks:");
+	printf("Enter the name: ");
+	getchar();
+	gets(newnode->name);
+	printf("Enter the age: ");
+	scanf("%d", &newnode->age);
+	printf("Enter the marks :");
 	scanf("%f", &newnode->mark);
-	printf("Enter 1 if deleted or 0 if not:");
-	scanf("%d", &newnode->deleted);
 
 	newnode->next = NULL;
 
@@ -81,6 +79,9 @@ STUDENT *addToList(STUDENT *head)
 		temporalNode->next = newnode;
 		temporalNode = newnode;
 	}
+	printf("\n\nStudent added Successfully!\n");
+	print_header();
+	display(temporalNode);
 	return head;
 }
 
@@ -93,7 +94,7 @@ void displayList(STUDENT *head){
 
     system("cls");
     if (isEmpty(head)) {
-        printf("The list is empty");
+        printf("The list is empty\n");
         return;
     }
 
@@ -131,9 +132,9 @@ STUDENT *searchByID(STUDENT *head, int key) {
     return NULL;
 }
 
-void seacrchByName(STUDENT *head, char input[15]){
 
-void searchByName(STUDENT *head, char input[15]){
+
+void searchByName(STUDENT *head, const char input[15]){
     
     current = head;
     int results = 0;
@@ -177,7 +178,10 @@ void removeByID(STUDENT *head, int key) {
 }
 
 void edit(STUDENT *head, int key) {
-
+	system("cls");
+	int selection;
+	while(1){
+	
     STUDENT *target;
     target = searchByID(head, key);
     
@@ -196,7 +200,7 @@ void edit(STUDENT *head, int key) {
 
     float newMark;
     int option;
-
+	
     switch (choice) {
 
         case 1:
@@ -208,7 +212,7 @@ void edit(STUDENT *head, int key) {
         case 2:
             printf("Press 1 to delete\nPress 0 to cancel\n");
             scanf("%d", &option);
-            option == 1 ? softDelete(target) : exit;
+            option == 1 ? softDelete(target) : exit(0);
             break;
 
         default:
@@ -218,6 +222,9 @@ void edit(STUDENT *head, int key) {
 
     printf("\nUpdated record successfully!");
     showSingleResult(target);
+    printf("\n\nDo you want to edit again? if yes, press 1, otherwise press 2: ");
+    scanf("%d", &selection);
+  }
 }
 
 void editMark(STUDENT *student, float newMark) {
@@ -257,6 +264,7 @@ void showSingleResult(STUDENT *student) {
 		current = nextNode;
 	}
     head = sortedList;
+  
 }
 
 void addStudent()
@@ -266,14 +274,14 @@ void addStudent()
 	
 	STUDENT *temp;
 	temp = (STUDENT*)malloc(sizeof(STUDENT));
-	printf("\nEnter Id: ");
+	printf("Enter Id: ");
 	scanf("%d", &temp->id);
-	printf("\nEnter name: ");
+	printf("Enter name: ");
 	getchar();
 	gets(temp->name);
-	printf("\nEnter the age: ");
+	printf("Enter the age: ");
 	scanf("%d",  &temp->age);
-	printf("\nEnter marks: ");
+	printf("Enter marks: ");
 	scanf("%f", &temp->mark);
 	temp->next = NULL;
 	if(head == NULL){
@@ -288,6 +296,7 @@ void addStudent()
 		}
 		ptr->next = temp;
 	}
+	printf("\n\nStudent added Successfully!\n");
 	printf("Do you still want to add a student? If yes( press 1), no( press 0)");
 	scanf("%d", &option);  
   }
@@ -319,6 +328,7 @@ void sortByName()
 		current = nextNode;
 	}
 	head = sortedList;
+
 }
 
 //sorting by id
@@ -327,7 +337,7 @@ void sortById()
 {
 	if(head == NULL|| head->next == NULL)
 	{
-		return;
+		return;//checking if head is null or list contains only  one node.
 	}
 	STUDENT *sortedList = NULL;
 	STUDENT *current = head;
@@ -349,7 +359,7 @@ void sortById()
 		current = nextNode;
 	}
 	head = sortedList;
-	displayList(head);
+
 }
 
 
@@ -379,19 +389,9 @@ void sortByAge()
 		current = nextNode;
 	}
 	head = sortedList;
-	displayList(head);
+
 }
 
-void sortedListByMarks()
-{	sortByMarks();
-	displayList(head);
-}
-
-void sortedListByName()
-{
-	 sortByName();
-	displayList(head);
-}
 
 void sort()
 {
@@ -417,20 +417,24 @@ void sort()
 		
 		switch(choice)
 		{
-			case 1: sortedListByName();
+			case 1: sortByName();
+					displayList(head);
 					break;
-			case 2: sortedListByMarks();
+			case 2: sortByMarks();
+					displayList(head);
 					break;
 			case 3: sortByAge();
+					displayList(head);
 					break;
 			case 4: sortById();
+					displayList(head);
 					break;
 			case 5: exit(0);
 			default: printf("\nsort option is invalid!!\n");
 					break;
 					
 	}
-	printf("\nDo you want to continue sorting? if yes, press 1, otherwise press 0");
+	printf("\nDo you want to continue sorting? if yes, (press 1, otherwise press 0)");
 	scanf("%d", &option);
 
   }
@@ -455,14 +459,14 @@ void search()
 		
 		switch(choice)
 		{
-			case 1: searchByName(head, "no");
+			case 1: searchByName(head, "e");
 					break;
 			case 2: searchByID(head, 11);
 			case 3: exit(0);
 			default: printf("\nsearch option is invalid!! you may stop searching by pressing 3\n");
 					break;
 		}
-		printf("\n\nDo you want to continue searching? (if yes, press 1, otherwise press 0)");
+		printf("\n\nDo you want to continue searching? (if yes, press 1, otherwise press 0): ");
 		scanf("%d", &option);
 		
 	}

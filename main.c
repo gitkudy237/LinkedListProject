@@ -36,7 +36,7 @@ int main(void)
 		{
 			case 1: initilize(head);
 					break;
-			case 2: addStudent();
+			case 2: head = addToList(head);
 					break;
 			case 3: displayList(head);
 					break;
@@ -44,21 +44,18 @@ int main(void)
 					break;
 			case 5: search();
 					break;
-		//	case 6: Edit(head, 1);
+			case 6: edit(head, 1);
 			//		break;
-			case 6: exit(0);
+			case 7: exit(0);
 			default: printf("invalid choice\n");
 					break;
 		}
 	}
 	//1. Allocate memory using malloc()
 	//2. make head point to the first node
-	initilize(head);
-
-head = addToList(head);
-
-edit(head, 1);
+	
 	
 
 	return 0;
+	
 }

@@ -4,3 +4,6 @@
 /main.o
 /.vscode
 /.dist
+/gmon.out
+/header.h.gch
+/test.o
