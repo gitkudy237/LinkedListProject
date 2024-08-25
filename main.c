@@ -10,30 +10,43 @@ int main(void)
 {
 	int choice;
 	while(1)
-	{	printf("********************\n");
-		printf("0. Add student\n");
-		printf("1. display list\n");
-		printf("2. sort list by marks\n");
-		printf("3. sort list by name\n");
-		printf("4. Search by name\n");
-		printf("5. *** To exit ***\n");
+	{	printf("*************SELECT OPERATION FROM MENU**********\n\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t1\t | initialize list\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t2\t | Add student\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t3\t | Display List\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t4\t | Sort\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t5\t | Search\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t5\t | Remove Student\n ");
+		printf("------------------------------------------------|\n");
+		printf("\t6\t | Edit\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t7\t | *** To exit ***\n");
+		printf("-------------------------------------------------|\n");
 		
-		printf("\ntake a choice: ");
+		printf("\nMake a choice: ");
 		scanf("%d", &choice);
 		
 		switch(choice)
 		{
-			case 0: addStudent();
+			case 1: initilize(head);
 					break;
-			case 1: displayList(head);
+			case 2: addStudent();
 					break;
-			case 2: sortedListByMarks();
+			case 3: displayList(head);
 					break;
-			case 3: sortedListByName();
+			case 4: sort();
 					break;
-			case 4: searchByName(head, "n");
+			case 5: search();
 					break;
-			case 5: exit(0);
+		//	case 6: Edit(head, 1);
+			//		break;
+			case 6: exit(0);
 			default: printf("invalid choice\n");
 					break;
 		}
@@ -91,7 +104,7 @@ int main(void)
 	//sortedListByMarks(head);
 	//displayList(head);
 
-	
+//	printf("I have added something");
 
 	return 0;
 }
