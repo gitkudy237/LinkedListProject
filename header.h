@@ -18,6 +18,11 @@ void initilize(STUDENT *s);
 void print_header();
 void display(STUDENT *s);
 void displayList(STUDENT *s);
+void seacrchByName(STUDENT *s, char input[15]);
+void edit(STUDENT *s, int id);
+void editMark(STUDENT *s, float newMark);
+void softDelete(STUDENT *s);
+void showSingleResult(STUDENT *s);
  void sortByMarks();
 void sortById();
 void sortByAge();
@@ -26,7 +31,7 @@ void searchByName(STUDENT *head, char input[15]);
 // searchByID will return a pointer to the target node.
 // The reason is to be able to maniplulate the output flexibly.
 // To see the output, use the display function declared above.
-STUDENT *searchByID(STUDENT *s, int key); 
+STUDENT *searchByID(STUDENT *s, int key);
 void removeByID(STUDENT *s, int key);
 void Edit(STUDENT *head, int key);
 int isEmpty(STUDENT *s);
@@ -64,9 +69,9 @@ STUDENT *addToList(STUDENT *head)
 	scanf("%f", &newnode->mark);
 	printf("Enter 1 if deleted or 0 if not:");
 	scanf("%d", &newnode->deleted);
-	
+
 	newnode->next = NULL;
-	
+
 	if( head == NULL)
 	{
 		head = temporalNode = newnode;
@@ -85,7 +90,7 @@ void print_header() {
 
 }
 void displayList(STUDENT *head){
-    
+
     system("cls");
     if (isEmpty(head)) {
         printf("The list is empty");
@@ -122,7 +127,11 @@ STUDENT *searchByID(STUDENT *head, int key) {
 
         current = current->next;
     }
+
+    return NULL;
 }
+
+void seacrchByName(STUDENT *head, char input[15]){
 
 void searchByName(STUDENT *head, char input[15]){
     
@@ -146,7 +155,7 @@ void searchByName(STUDENT *head, char input[15]){
     }
 
     if (results == 0)
-        printf("<---------- Empty ---------->");
+        printf("<-------------------------------- Empty ------------------------------------>");
 }
 void removeByID(STUDENT *head, int key) {
 
@@ -165,6 +174,63 @@ void removeByID(STUDENT *head, int key) {
         }
         current = current->next;
     }
+}
+
+void edit(STUDENT *head, int key) {
+
+    STUDENT *target;
+    target = searchByID(head, key);
+    
+    // I check whether the student exists
+    if (!target) {
+        printf("Sorry! Student not found.\n");
+        return;
+    }
+
+    printf("The student is:\n");
+    showSingleResult(target);
+    int choice;
+    printf("Press 1 to edit student mark\n");
+    printf("Press 2 to soft delete student\n");
+    scanf("%d", &choice);
+
+    float newMark;
+    int option;
+
+    switch (choice) {
+
+        case 1:
+            printf("Enter new mark: ");
+            scanf("%f", &newMark);
+            editMark(target, newMark);
+            break;
+
+        case 2:
+            printf("Press 1 to delete\nPress 0 to cancel\n");
+            scanf("%d", &option);
+            option == 1 ? softDelete(target) : exit;
+            break;
+
+        default:
+            printf("Invalid option.");
+            break;
+    }
+
+    printf("\nUpdated record successfully!");
+    showSingleResult(target);
+}
+
+void editMark(STUDENT *student, float newMark) {
+    student->mark = newMark;
+}
+
+void softDelete(STUDENT *student) {
+    student->deleted = 1;
+}
+
+void showSingleResult(STUDENT *student) {
+    print_header();
+    display(student);
 }
 
  void sortByMarks()
