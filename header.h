@@ -12,7 +12,13 @@ struct student {
 };
 
 typedef struct student STUDENT;
+
+//variables;
 STUDENT *current;
+STUDENT *temporalNode, *newnode;
+int age, deleted, id;
+float mark;
+char name[25];
 
 void initilize(STUDENT *s);
 void print_header();
@@ -25,20 +31,14 @@ void showSingleResult(STUDENT *s);
 void sortByMarks();
 void sortById();
 void sortByAge();
+int inputID();
+const char inputName();
+void displayMenu();
 void searchByName(STUDENT *head, const char input[15]);
-
-// searchByID will return a pointer to the target node.
-// The reason is to be able to maniplulate the output flexibly.
-// To see the output, use the display function declared above.
 STUDENT *searchByID(STUDENT *s, int key);
 void removeByID(STUDENT *s, int key);
 void edit(STUDENT *head, int key);
 int isEmpty(STUDENT *s);
-STUDENT *temporalNode, *newnode;
-//variables;
-int age, deleted, id;
-float mark;
-char name[25];
 
 void display(STUDENT *s){
 
@@ -166,6 +166,12 @@ void removeByID(STUDENT *head, int key) {
     }
     STUDENT *target;
     target = searchByID(head, key);
+
+    if (!target) {
+        printf("Sorry! student not found!");
+        return;
+    }
+    
     current = head;
 
     while (current < target) {
@@ -196,6 +202,7 @@ void edit(STUDENT *head, int key) {
     int choice;
     printf("Press 1 to edit student mark\n");
     printf("Press 2 to soft delete student\n");
+	printf
     scanf("%d", &choice);
 
     float newMark;
@@ -212,7 +219,7 @@ void edit(STUDENT *head, int key) {
         case 2:
             printf("Press 1 to delete\nPress 0 to cancel\n");
             scanf("%d", &option);
-            option == 1 ? softDelete(target) : exit(0);
+            option == 1 ? softDelete(target) : edit(target, key);
             break;
 
         default:
@@ -239,6 +246,19 @@ void showSingleResult(STUDENT *student) {
     print_header();
     display(student);
 }
+
+int length(STUDENT *head) {
+    current = head;
+    int count = 0;
+
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+
+    return count;
+}
+
 
  void sortByMarks()
 {
@@ -267,40 +287,6 @@ void showSingleResult(STUDENT *student) {
   
 }
 
-void addStudent()
-{
-	int option = 1;
-	while(option){
-	
-	STUDENT *temp;
-	temp = (STUDENT*)malloc(sizeof(STUDENT));
-	printf("Enter Id: ");
-	scanf("%d", &temp->id);
-	printf("Enter name: ");
-	getchar();
-	gets(temp->name);
-	printf("Enter the age: ");
-	scanf("%d",  &temp->age);
-	printf("Enter marks: ");
-	scanf("%f", &temp->mark);
-	temp->next = NULL;
-	if(head == NULL){
-		head = temp;
-		return;
-	}
-	else{
-		STUDENT *ptr = head;
-		while(ptr->next != NULL)
-		{
-			ptr = ptr->next;
-		}
-		ptr->next = temp;
-	}
-	printf("\n\nStudent added Successfully!\n");
-	printf("Do you still want to add a student? If yes( press 1), no( press 0)");
-	scanf("%d", &option);  
-  }
-}
 
 
 void sortByName()
@@ -395,7 +381,7 @@ void sortByAge()
 
 void sortMenu()
 {
-		system("cls");
+    system("cls");
 	int choice, option = 1;
 	
 	while(option){
@@ -433,11 +419,12 @@ void sortMenu()
 			default: sortMenu();
 					break;
 					
-	}
-	printf("\nDo you want to continue sorting? if yes, (press 1, otherwise press 0)");
-	scanf("%d", &option);
+	    }
 
-  }
+        printf("\nDo you want to continue sorting? if yes, (press 1, otherwise press 0)");
+        scanf("%d", &option);
+
+    }
 }
 
 void searchMenu()
@@ -461,10 +448,10 @@ void searchMenu()
 		{   int id; 
 			char name[15];
 
-			case 1: name = inputName;
+			case 1: strcpy(name, inputName());
 			 searchByName(head, name);
 					break;
-			case 2: id = inputID;
+			case 2: id = inputID();
 				searchByID(head, id);
 					break;
 			case 3: displayMenu();
@@ -505,7 +492,7 @@ void displayMenu()
 		scanf("%d", &choice);
 		
 		switch(choice)
-		{   
+		{   int id;
 
 			case 1: initilize(head);
 					break;
@@ -517,12 +504,27 @@ void displayMenu()
 					break;
 			case 5: searchMenu();
 					break;
-			case 6: 
-				edit(head, 1);
+			case 6: id = inputID();
+				edit(head, id);
 				break;
 			case 7: exit(0);
 			default: printf("invalid choice\n");
 					break;
 		}
 	}
+}
+
+
+int inputID() {
+    int id;
+    printf("Enter student ID: ");
+    scanf("%d", &id);
+    return id;
+}
+
+const char inputName() {
+    char name[15];
+    printf("Enter student name: ");
+    gets(name);
+    return name;
 }
