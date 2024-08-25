@@ -61,8 +61,21 @@ void initilize(STUDENT *head){
 STUDENT *addToList(STUDENT *head)
 {
 	newnode = (STUDENT*) malloc(sizeof(STUDENT));
-	printf("Enter the id: ");
-	scanf("%d", &newnode->id);
+    int candidateID;
+
+    do {
+        printf("Enter the id: ");
+        scanf("%d", &candidateID);
+
+        if (!searchByID(head, candidateID)){
+            newnode->id = candidateID;
+            break;
+        }
+
+        printf("Sorry! Id already exist.\n");
+
+;    }while (searchByID(head, candidateID));
+
 	printf("Enter the name: ");
 	getchar();
 	gets(newnode->name);
@@ -116,10 +129,6 @@ int isEmpty(STUDENT *head){
 }
 
 STUDENT *searchByID(STUDENT *head, int key) {
-    if (isEmpty(head)) {
-        printf("List is empty");
-        exit;
-    }
 
     current = head;
 
@@ -527,9 +536,3 @@ int inputID() {
     return id;
 }
 
-const char inputName() {
-    char name[15];
-    printf("Enter student name: ");
-    gets(name);
-    return name;
-}
