@@ -393,7 +393,7 @@ void sortByAge()
 }
 
 
-void sort()
+void sortMenu()
 {
 		system("cls");
 	int choice, option = 1;
@@ -409,7 +409,7 @@ void sort()
 		printf("-------------------------------------------------|\n");
 		printf("\t4\t | Sort by ID\n");
 		printf("-------------------------------------------------|\n");
-		printf("\t5\t | **to exit sort***\n");
+		printf("\t5\t | Go back to main menu\n");
 		printf("-------------------------------------------------|\n");
 		
 		printf("Please Enter prefered choice: ");
@@ -429,8 +429,8 @@ void sort()
 			case 4: sortById();
 					displayList(head);
 					break;
-			case 5: exit(0);
-			default: printf("\nsort option is invalid!!\n");
+			case 5: displayMenu();
+			default: sortMenu();
 					break;
 					
 	}
@@ -440,7 +440,7 @@ void sort()
   }
 }
 
-void search()
+void searchMenu()
 {
 	system("cls");
 	int choice, option = 1;
@@ -452,22 +452,77 @@ void search()
 		printf("-------------------------------------------------|\n");
 		printf("\t2\t | search by ID\n");
 		printf("-------------------------------------------------|\n");
-		printf("\t3\t | **to exit the search");
-		
+		printf("\t3\t | Go back to main menu.");
+		printf("-------------------------------------------------|\n");
 		printf("\nEnter choice of search: ");
 		scanf("%d", &choice);
 		
 		switch(choice)
-		{
-			case 1: searchByName(head, "e");
+		{   int id; 
+			char name[15];
+
+			case 1: name = inputName;
+			 searchByName(head, name);
 					break;
-			case 2: searchByID(head, 11);
-			case 3: exit(0);
-			default: printf("\nsearch option is invalid!! you may stop searching by pressing 3\n");
+			case 2: id = inputID;
+				searchByID(head, id);
+					break;
+			case 3: displayMenu();
+					break;
+			default: searchMenu();
 					break;
 		}
-		printf("\n\nDo you want to continue searching? (if yes, press 1, otherwise press 0): ");
-		scanf("%d", &option);
+			printf("\n\nDo you want to continue searching? (if yes, press 1, otherwise press 0): ");
+			scanf("%d", &option);
 		
+	}
+}
+
+void displayMenu()
+{
+	int choice;
+	while(1)
+	{	printf("*************SELECT OPERATION FROM MENU**********\n\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t1\t | initialize list\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t2\t | Add student\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t3\t | Display List\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t4\t | Sort\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t5\t | Search\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t5\t | Remove Student\n ");
+		printf("------------------------------------------------|\n");
+		printf("\t6\t | Edit\n");
+		printf("-------------------------------------------------|\n");
+		printf("\t7\t | *** To exit ***\n");
+		printf("-------------------------------------------------|\n");
+		
+		printf("\nMake a choice: ");
+		scanf("%d", &choice);
+		
+		switch(choice)
+		{   
+
+			case 1: initilize(head);
+					break;
+			case 2: head = addToList(head);
+					break;
+			case 3: displayList(head);
+					break;
+			case 4: sortMenu();
+					break;
+			case 5: searchMenu();
+					break;
+			case 6: 
+				edit(head, 1);
+				break;
+			case 7: exit(0);
+			default: printf("invalid choice\n");
+					break;
+		}
 	}
 }
