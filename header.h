@@ -41,7 +41,10 @@ void edit(STUDENT *head, int key);
 int isEmpty(STUDENT *s);
 
 void display(STUDENT *s){
-
+    if (s == NULL) {
+        printf("<-------------------------------- Empty ------------------------------------>");
+        return;
+    }
 	printf("%s\t\t", s->name);
 	printf("%d\t\t", s->id);
 	printf("%d\t\t", s->age);
@@ -135,7 +138,7 @@ STUDENT *searchByID(STUDENT *head, int key) {
 
 
 void searchByName(STUDENT *head, const char input[15]){
-    
+
     current = head;
     int results = 0;
 
@@ -171,7 +174,7 @@ void removeByID(STUDENT *head, int key) {
         printf("Sorry! student not found!");
         return;
     }
-    
+
     current = head;
 
     while (current < target) {
@@ -187,10 +190,10 @@ void edit(STUDENT *head, int key) {
 	system("cls");
 	int selection;
 	while(1){
-	
+
     STUDENT *target;
     target = searchByID(head, key);
-    
+
     // I check whether the student exists
     if (!target) {
         printf("Sorry! Student not found.\n");
@@ -202,12 +205,11 @@ void edit(STUDENT *head, int key) {
     int choice;
     printf("Press 1 to edit student mark\n");
     printf("Press 2 to soft delete student\n");
-	printf
     scanf("%d", &choice);
 
     float newMark;
     int option;
-	
+
     switch (choice) {
 
         case 1:
@@ -284,7 +286,7 @@ int length(STUDENT *head) {
 		current = nextNode;
 	}
     head = sortedList;
-  
+
 }
 
 
@@ -383,7 +385,7 @@ void sortMenu()
 {
     system("cls");
 	int choice, option = 1;
-	
+
 	while(option){
 		printf("\n*******Select the sorting you want*******\n\n");
 		printf("-------------------------------------------------|\n");
@@ -397,10 +399,10 @@ void sortMenu()
 		printf("-------------------------------------------------|\n");
 		printf("\t5\t | Go back to main menu\n");
 		printf("-------------------------------------------------|\n");
-		
+
 		printf("Please Enter prefered choice: ");
 		scanf("%d", &choice);
-		
+
 		switch(choice)
 		{
 			case 1: sortByName();
@@ -418,7 +420,7 @@ void sortMenu()
 			case 5: displayMenu();
 			default: sortMenu();
 					break;
-					
+
 	    }
 
         printf("\nDo you want to continue sorting? if yes, (press 1, otherwise press 0)");
@@ -443,16 +445,19 @@ void searchMenu()
 		printf("-------------------------------------------------|\n");
 		printf("\nEnter choice of search: ");
 		scanf("%d", &choice);
-		
+
 		switch(choice)
-		{   int id; 
+		{   int id;
 			char name[15];
 
-			case 1: strcpy(name, inputName());
-			 searchByName(head, name);
+			case 1:
+			    getchar();
+			    printf("Enter the new name: ");
+			    gets(name);
+			    searchByName(head, name);
 					break;
 			case 2: id = inputID();
-				searchByID(head, id);
+				showSingleResult(searchByID(head, id));
 					break;
 			case 3: displayMenu();
 					break;
@@ -461,7 +466,7 @@ void searchMenu()
 		}
 			printf("\n\nDo you want to continue searching? (if yes, press 1, otherwise press 0): ");
 			scanf("%d", &option);
-		
+
 	}
 }
 
@@ -487,10 +492,10 @@ void displayMenu()
 		printf("-------------------------------------------------|\n");
 		printf("\t7\t | *** To exit ***\n");
 		printf("-------------------------------------------------|\n");
-		
+
 		printf("\nMake a choice: ");
 		scanf("%d", &choice);
-		
+
 		switch(choice)
 		{   int id;
 
